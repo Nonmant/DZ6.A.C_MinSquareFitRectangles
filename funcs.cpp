@@ -30,7 +30,7 @@ void parseFile(std::istream & input, std::ostream & output){
 
     int w, h, n;
     input >> w >> h >> n;
-    unsigned long long left = 1, right = std::max(w,h)*n;
+    unsigned long long left = 0, right = w*h*n;
     auto a = binSearchLowerBound(
             [&w, &h](unsigned long long side){
                 return getDiplomasNumber(w,h,side);
@@ -38,7 +38,7 @@ void parseFile(std::istream & input, std::ostream & output){
                 [&n](unsigned long long number){return number < n;},
                     left, right);
 
-    if (getDiplomasNumber(w,h,a)<n) ++a;
+    while (getDiplomasNumber(w,h,a)<n) ++a;
 
     output << a;
 }
