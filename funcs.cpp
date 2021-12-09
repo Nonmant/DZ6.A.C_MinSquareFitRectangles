@@ -20,7 +20,9 @@ unsigned long long binSearchLowerBound(F1 valueGenerate,
     return right;
 }
 
-unsigned long long getDiplomasNumber(int w, int h, unsigned long long side){
+unsigned long long getDiplomasNumber(unsigned long long w,
+                                     unsigned long long h,
+                                     unsigned long long side){
     unsigned long long columns = side/w;
     unsigned long long rows = side/h;
     return columns*rows;
@@ -28,9 +30,9 @@ unsigned long long getDiplomasNumber(int w, int h, unsigned long long side){
 
 void parseFile(std::istream & input, std::ostream & output){
 
-    int w, h, n;
+    unsigned long long w, h, n;
     input >> w >> h >> n;
-    unsigned long long left = 0, right = w*h*n;
+    unsigned long long left = 0, right = std::max(w,h)*n;
     auto a = binSearchLowerBound(
             [&w, &h](unsigned long long side){
                 return getDiplomasNumber(w,h,side);

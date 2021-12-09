@@ -32,6 +32,14 @@ TEST_CASE("test 1, file", "[simple]"){
     );
 }
 
+TEST_CASE("test 007", ""){
+    std::ifstream input( "../007", std::ofstream::in);
+    std::stringstream output;
+    parseFile(input,output);
+    REQUIRE(output.str() == "2500000000"
+    );
+}
+
 TEST_CASE("maximum diplomas", ""){
     std::stringstream input(
             "1000000000 1000000000 1000000000"
