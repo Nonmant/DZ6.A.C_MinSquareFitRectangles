@@ -42,6 +42,16 @@ TEST_CASE("maximum diplomas", ""){
     );
 }
 
+TEST_CASE("size 1x1, max number", ""){
+    std::stringstream input(
+            "1 1 1000000000"
+    );
+    std::stringstream output;
+    parseFile(input,output);
+    REQUIRE(output.str() == "31623"
+    );
+}
+
 TEST_CASE("1,1,1", ""){
     std::stringstream input(
             "1 1 1"

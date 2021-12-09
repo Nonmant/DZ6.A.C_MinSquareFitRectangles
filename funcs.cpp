@@ -38,7 +38,7 @@ void parseFile(std::istream & input, std::ostream & output){
                 [&n](unsigned long long number){return number < n;},
                     left, right);
 
-    while (getDiplomasNumber(w,h,a)<n) ++a;
+    if (getDiplomasNumber(w,h,a)<n) ++a;
 
     output << a;
 }
